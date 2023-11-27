@@ -13,3 +13,12 @@ document.getElementById('profile-button').addEventListener('click', event => {
     document.getElementById('login-dialog').showModal();
   }
 });
+
+document.querySelectorAll('.article-index span.rating').forEach( elem => {
+  const ratingValue = parseFloat(elem.innerText);
+  const hue = ratingValue * 20; // map 0-5 to 0-100
+  elem.style.backgroundColor = `hsl(${hue}deg 92% 72%)`;
+});
+
+
+
