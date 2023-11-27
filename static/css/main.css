@@ -401,6 +401,25 @@ main {
       font-size: 1.2em;
       line-height: 1.6em;
       text-align: justify;
+
+      & a {
+        text-decoration: underline;
+
+        &::after {
+          content: '';
+          background-image: url(/static/images/link.svg);
+          width: 0.7em;
+          height: 0.7em;
+          text-decoration: none;
+          display: inline-block;
+          background-size: contain;
+          background-repeat: no-repeat;
+        }
+
+        &:hover, &:focus {
+          color: rgb(75, 75, 75);
+        }
+      }
     }
   }
   
