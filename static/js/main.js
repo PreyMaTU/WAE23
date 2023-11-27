@@ -14,7 +14,7 @@ document.getElementById('profile-button').addEventListener('click', event => {
   }
 });
 
-document.querySelectorAll('.article-index span.rating').forEach( elem => {
+document.querySelectorAll('.article-index div.rating').forEach( elem => {
   const ratingValue = parseFloat(elem.innerText);
   const hue = ratingValue * 20; // map 0-5 to 0-100
   elem.style.backgroundColor = `hsl(${hue}deg 92% 72%)`;

@@ -386,7 +386,7 @@ main {
         right: 0;
         border-left: solid gray 1px;
         border-top: solid gray 1px;
-        border-top-left-radius: inherit;
+        border-top-left-radius: var(--border-radius);
 
         padding: 0.2rem 0.3rem;
       }
