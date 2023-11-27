@@ -238,6 +238,16 @@ main {
   min-height: calc(100vh - 10rem);
   flex-grow: 1;
 
+  .anim-float-box {
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+
+    /* Let the whole block box hover a bit */
+    &:hover {
+      transform: translateX(-5px) translateY(-5px);
+      box-shadow: 3px 4px 5px 2px #28282830;
+    }
+  }
+
   /* Homepage module block showing multiple LVA article blocks */
   & .module {
     width: fit-content;
@@ -264,14 +274,6 @@ main {
       border: 1px solid grey;
       border-radius: var(--border-radius-large);
       overflow: hidden;
-
-      transition: transform 0.4s ease, box-shadow 0.4s ease;
-
-      /* Let the whole block box hover a bit */
-      &:hover {
-        transform: translateX(-5px) translateY(-5px);
-        box-shadow: 3px 4px 5px 2px #28282830;
-      }
 
       & > * {
         padding: 1rem;
