@@ -392,6 +392,24 @@ main {
       }
     }
   }
+
+  .article-text {
+    position: relative;
+
+    & > p {
+      font-family: serif;
+      font-size: 1.2em;
+      line-height: 1.6em;
+      text-align: justify;
+    }
+  }
+  
+  & .about {
+    & .article-text {
+      margin: auto;
+      max-width: 45rem;
+    }
+  }
 }
 
 /* Footer for the page */
