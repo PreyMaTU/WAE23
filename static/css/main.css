@@ -234,7 +234,8 @@ aside {
   }
 }
 
-/* Link styled as a button that can also be disabled */
+/* Link styled as a button that can also be disabled
+   This is mostly used by the section headers of the different pages */
 .button {
   display: block;
   padding: 0.2rem 0.35rem;
@@ -283,6 +284,7 @@ main {
     }
   }
 
+  /* Reusable animation to let a box float with a drop-shadow on hover */
   .anim-float-box {
     transition: transform 0.4s ease, box-shadow 0.4s ease;
 
@@ -383,6 +385,7 @@ main {
 
   /* List of all articles for a given module */
   & .article-index {
+    /* Show boxes in a row next to each other with wrapping */
     & ul {
       list-style: none;
       padding: 0 2rem;
@@ -392,6 +395,7 @@ main {
       justify-content: space-evenly;
     }
 
+    /* Each article is its own clickable box linking to the article page */
     & li {
       background-color: #f9fef9;
       border: grey solid 1px;
@@ -399,6 +403,7 @@ main {
       overflow: hidden;
       position: relative;
       
+      /* Make the anchor fill the whole box and animate the underline on hover */
       & a {
         display: block;
         width: 100%;
@@ -414,10 +419,12 @@ main {
         text-decoration-color: inherit;
       }
 
+      /* Make the LVA number smaller */
       & a > span:first-of-type {
         font-size: 0.9em;
       }
 
+      /* Place the rating field in the bottom right corner of the box */
       & .rating {
         position: absolute;
         bottom: 0;
@@ -431,6 +438,7 @@ main {
     }
   }
 
+  /* Styling for the textual content of articles and about pages */
   & .article-text {
     & > p, & li {
       font-family: serif;
@@ -438,6 +446,7 @@ main {
       line-height: 1.6em;
       text-align: justify;
 
+      /* Underline links and add a small chain-link icon at the end */
       & a {
         text-decoration: underline;
 
@@ -459,6 +468,7 @@ main {
     }
   }
   
+  /* Set the content width of about pages */
   & .about {
     & .article-text {
       margin: auto;
@@ -466,6 +476,8 @@ main {
     }
   }
 
+  /* The header section of article pages is a bit more complicated as it shows the
+     additional article information */
   & section.header {
     border-bottom: 1px solid grey;
 
@@ -477,6 +489,8 @@ main {
       padding-right: 1rem;
     }
 
+    /* Split the buttons into a left and right area for the links & stats (left),
+       and the edit log message (right) */
     & .buttons {
       display: flex;
       flex-direction: row;
@@ -485,6 +499,7 @@ main {
       margin-bottom: 0.8rem;
       gap: 1rem;
 
+      /* Place the buttons in a row */
       & .info{
         display: flex;
         flex-direction: row;
@@ -501,6 +516,7 @@ main {
   & .article {
     margin-bottom: 2rem;
     
+    /* Spacer between the article text and the comment section */
     & article {
       border-bottom: 1px solid grey;
       padding-bottom: 1rem;
@@ -511,7 +527,10 @@ main {
       max-width: var(--text-content-width);
     }
 
-    & .adjust-headers{
+    /* The WYSIWYG editor puts out html where the top headings are of type h1.
+       We therefore need to adjust their size and margin to make them fit into
+       the article content */
+    & .adjust-headers {
       & h1 {
         font-size: 1.4em;
         margin-block-start: 1em;
@@ -540,6 +559,7 @@ main {
     }
   }
 
+  /* Make the comment section as wide as the article content */
   & .new-review, & .reviews {
     width: var(--text-content-width);
     margin: 0 auto;
@@ -559,6 +579,7 @@ main {
         font-size: 0.8em;
       }
 
+      /* Add some padding to the text area and disable resizing */
       & textarea {
         border-radius: var(--border-radius);
         height: 5rem;
@@ -573,16 +594,19 @@ main {
         gap: 0.5rem;
       }
 
+      /* Let the slider fill all available width */
       #new-rating {
         flex-grow: 1;
       }
 
+      /* Show the currently selected rating as a colored bubble */
       #new-rating-value {
         border: solid gray 1px;
         border-radius: 500px;
         padding: 0.2rem 0.3rem;
       }
 
+      /* Move the submit button to the right */
       & button {
         display: block;
         margin-left: auto;
@@ -596,6 +620,8 @@ main {
       padding: 0;
       margin: 0;
     }
+
+    /* Each rating is a colored box with its rating value and comment text */
     & li {
       list-style: none;
       display: flex;
@@ -614,6 +640,7 @@ main {
       }
     }
 
+    /* A colored circle with a drop-shadow. The text value is centered using flex */
     & .rating-bubble {
       width: 5rem;
       height: 5rem;
@@ -637,6 +664,7 @@ main {
 
   & .editor {
     
+    /* Draw the fieldset without a border */
     & fieldset {
       display: flex;
       flex-direction: column;
@@ -655,6 +683,7 @@ main {
         }
       }
 
+      /* Set a uniform length for all input elements */
       & input, & select {
         width: 10rem;
         box-sizing: border-box;
