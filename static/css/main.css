@@ -393,9 +393,7 @@ main {
     }
   }
 
-  .article-text {
-    position: relative;
-
+  & .article-text {
     & > p, & li {
       font-family: serif;
       font-size: 1.2em;
