@@ -600,7 +600,7 @@ main {
       list-style: none;
       display: flex;
       flex-direction: row;
-      gap: 1rem;
+      gap: 1.5rem;
       align-items: center;
       text-align: justify;
 
