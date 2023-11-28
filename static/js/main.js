@@ -40,3 +40,6 @@ document.querySelectorAll('#new-rating').forEach( elem =>
   })
 );
 
+if( CKEDITOR && document.getElementById('lva-article') ) {
+  CKEDITOR.replace('lva-article', {});
+}

@@ -631,6 +631,40 @@ main {
       text-align: right;
     }
   }
+
+  & .editor {
+    
+    & fieldset {
+      display: flex;
+      flex-direction: column;
+      outline: none;
+      border: none;
+      gap: 1rem;
+      margin: 0 1rem;
+  
+      /* Put the label as small text on top of the input field */
+      & > div {
+        display: flex;
+        flex-direction: column;
+  
+        & label {
+          font-size: 0.8em;
+        }
+      }
+
+      & input, & select {
+        width: 10rem;
+        box-sizing: border-box;
+      }
+    }
+    
+    /* Move the submit button to the right of the box */
+    & button {
+      display: block;
+      margin: 0 2rem 0 auto;
+      margin-top: 1rem;
+    }
+  }
 }
 
 /* Footer for the page */
