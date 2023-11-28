@@ -4,6 +4,7 @@
   --col-header-text: white;
   --border-radius: 4px;
   --border-radius-large: 8px;
+  --text-content-width: 45rem;
 }
 
 body {
@@ -239,7 +240,7 @@ main {
   flex-grow: 1;
 
   /* Section header with separation line */
-  & > section > h2 {
+  & > section:not(.header) > h2 {
     border-bottom: 1px solid grey;
     padding-bottom: 1rem;
     margin: 4rem 0 1.5rem 0;
@@ -424,7 +425,186 @@ main {
   & .about {
     & .article-text {
       margin: auto;
-      max-width: 45rem;
+      max-width: var(--text-content-width);
+    }
+  }
+
+  & section.header {
+    border-bottom: 1px solid grey;
+
+    & h2 {
+      margin: 4rem 0 1.5rem 0;
+    }
+
+    & > div {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      margin: 1rem;
+      margin-bottom: 0.8rem;
+
+      & .info{
+        display: flex;
+        flex-direction: row;
+        gap: 1.5rem;
+
+        & > span, & > a {
+          display: block;
+          padding: 0.2rem 0.35rem;
+          border: 1px solid grey;
+          border-radius: var(--border-radius);
+        }
+
+        & > a {
+          transition: color 0.2s ease, background-color 0.2s ease;
+
+          &:hover {
+            background-color: grey;
+            color: white;
+          }
+        }
+      }
+
+      & .date {
+        font-style: italic;
+      }
+    }
+  }
+
+  & .article {
+    margin-bottom: 2rem;
+    
+    & article {
+      border-bottom: 1px solid grey;
+      padding-bottom: 1rem;
+    }
+
+    & .article-text {
+      margin: auto;
+      max-width: var(--text-content-width);
+    }
+
+    & .adjust-headers{
+      & h1 {
+        font-size: 1.4em;
+        margin-block-start: 1em;
+        margin-block-end: 1em;
+      }
+
+      & h2 {
+        font-size: 1.2em;
+        margin-block-start: 1em;
+        margin-block-end: 1em;
+      }
+
+      & :is(h3, h4, h5, h6) {
+        font-size: 1.05em;
+        margin-block-start: 1em;
+        margin-block-end: 1em;
+      }
+
+      & :is(h2, h3, h4, h5, h6) {
+        margin-bottom: 0.4em;
+
+        & + p {
+          margin-top: 0.4em;
+        }
+      }
+    }
+  }
+
+  & .new-review, & .reviews {
+    width: var(--text-content-width);
+    margin: 0 auto;
+  }
+
+  & .new-review {
+    margin-bottom: 3rem;
+
+    & form {
+      & > div {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 1rem;
+      }
+
+      & label {
+        font-size: 0.8em;
+      }
+
+      & textarea {
+        border-radius: var(--border-radius);
+        height: 5rem;
+        resize: none;
+        font-size: 1.1em;
+        font-family: sans-serif;
+        padding: 0.8rem;
+      }
+
+      & .slider {
+        display: flex;
+        gap: 0.5rem;
+      }
+
+      #new-rating {
+        flex-grow: 1;
+      }
+
+      #new-rating-value {
+        border: solid gray 1px;
+        border-radius: 500px;
+        padding: 0.2rem 0.3rem;
+      }
+
+      & button {
+        display: block;
+        margin-left: auto;
+        font-size: 1.1em;
+      }
+    }
+  }
+  
+  & .reviews {
+    & ul {
+      padding: 0;
+      margin: 0;
+    }
+    & li {
+      list-style: none;
+      display: flex;
+      flex-direction: row;
+      gap: 1rem;
+      align-items: center;
+      text-align: justify;
+
+      border-radius: var(--border-radius-large);
+      overflow: hidden;
+      background-color: #efefef;
+      padding: 1rem;
+
+      &:not(:last-child) {
+        margin-bottom: 2rem;
+      }
+    }
+
+    & .rating-bubble {
+      width: 5rem;
+      height: 5rem;
+      flex-shrink: 0;
+      border-radius: 500px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.7rem;
+      font-weight: bold;
+      box-shadow: 1px 1px 5px 4px #28282830;
+    }
+
+    & .author {
+      margin-top: 0.5rem;
+      font-style: italic;
+      text-align: right;
     }
   }
 }

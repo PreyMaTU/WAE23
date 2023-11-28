@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/static/css/main.css">
+  <script type="module" src="/static/js/main.js" defer></script>
+  <title>LVA-Review</title>
+</head>
+<body>
+  <dialog id="login-dialog">
+    <form class="close" method="dialog">
+      <button>×</button>
+    </form>
+    <form action="." method="POST">
+      <h3>Login</h3>
+      <p>
+        Login into your account to rate and LVA pages.
+      </p>
+      <fieldset>
+        <div>
+          <label for="username">User</label>
+          <input type="text" name="username" id="username" placeholder="your_account" required>
+        </div>
+        <div>
+          <label for="password">Password</label>
+          <input type="password" name="password" id="password" placeholder="●●●●●●●●" required>
+        </div>
+      </fieldset>
+      <button>Login</button>
+    </form>
+  </dialog>
+  <dialog id="logout-dialog">
+    <form class="close" method="dialog">
+      <button>×</button>
+    </form>
+    <form action="." method="POST">
+      <h3>Logout</h3>
+      <p>
+        Do you want to logout from your account?
+      </p>
+      <button>Logout</button>
+    </form>
+  </dialog>
+  <header>
+    <figure>
+      <a href="/">
+        <img src="./static/images/logo.svg" alt="">
+      </a>
+      <figcaption>
+        <h1>
+          LVA-Review
+        </h1>
+      </figcaption>
+    </figure>
+    <nav>
+      <ul>
+        <li><a href="./modules/electives">Electives</a></li>
+        <li><a href="./modules/sw-engineering">SW Engineering</a></li>
+        <li><a href="./modules/mathematics">Mathematics</a></li>
+        <li><a href="./modules/info-engineering">Info Engineering</a></li>
+        <li><a href="./modules/society">Society</a></li>
+        <li><a href="./modules/computer-systems">Computer Systems</a></li>
+        <li>
+          <a href="./modules/algorithms">Algorithms</a>
+          <div class="popup">
+            <nav>
+              <ul>
+                <li>
+                  <a href="kek.com" title="183.123 LVA 1">LVA 1</a>
+                </li>
+                <li>
+                  <a href="kek.com" title="183.123 LVA with long name">LVA with long name</a>
+                </li>
+                <li>
+                  <a href="kek.com" title="183.234 LVA with very very long name">LVA with very very long name</a>
+                </li>
+                <li>
+                  <a href="kek.com" title="183.345 short LVA">short LVA</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </li>
+      </ul>
+    </nav>
+    <div class="profile">
+      <button id="profile-button">
+        <img src="/static/images/key.svg" alt="">
+      </button>
+    </div>
+  </header>
+  <div class="page">
+    <main>
+      <section class="header">
+        <h2>Algorithmen und Datenstrukturen</h2>
+        <div>
+          <div class="info">
+            <span>LVA-Nr. 183.345</span>
+            <a href="">
+              Module Algorithms
+            </a>
+            <span class="colored-by-rating"> Rating 3.8 </span>
+          </div>
+          <div>
+            Last edited:
+            <span class="date" title="28th March 2023 11:36GMT">28th March 2023</span>
+            by
+            <span class="author">Rolf Riechtier</span>
+          </div>
+        </div>
+      </section>
+      <section class="article">
+        <article class="article-text adjust-headers">  
+          <h1>Heading One</h1>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia molestiae est nulla quae excepturi provident illum officia, voluptate quasi quam accusantium laboriosam odit, repellendus veniam cum laudantium ipsam reiciendis ab?</p>
+          <h2>Subheading One</h2>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia molestiae est nulla quae excepturi provident illum officia, voluptate quasi quam accusantium laboriosam odit, repellendus veniam cum laudantium ipsam reiciendis ab?</p>
+          <h3>SubSubheading One</h3>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia molestiae est nulla quae excepturi provident illum officia, voluptate quasi quam accusantium laboriosam odit, repellendus veniam cum laudantium ipsam reiciendis ab?</p>
+          <h1>Heading Two</h1>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia molestiae est nulla quae excepturi provident illum officia, voluptate quasi quam accusantium laboriosam odit, repellendus veniam cum laudantium ipsam reiciendis ab?</p>
+          <h1>Heading Three</h1>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia molestiae est nulla quae excepturi provident illum officia, voluptate quasi quam accusantium laboriosam odit, repellendus veniam cum laudantium ipsam reiciendis ab?</p>
+        </article>
+      </section>
+      <section class="new-review">
+        <form action="." method="POST">
+          <div>
+            <label for="new-rating">Rating</label>
+            <div class="slider">
+              <input type="range" min="0" max="5" step="0.1" value="5" required name="rating" id="new-rating">
+              <span id="new-rating-value" class="colored-by-rating">5.0</span>
+            </div>
+          </div>
+          <div>
+            <label for="new-comment">Comment</label>
+            <textarea name="comment" id="new-comment" cols="30" rows="10" placeholder="Add your thoughts..."></textarea>
+          </div>
+          <button type="submit">Save</button>
+        </form>
+      </section>
+      <section class="reviews"> 
+        <ul>
+          <li>
+            <div class="rating-bubble colored-by-rating">
+              <div>
+                3.8
+              </div>
+            </div>
+            <div>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugiat dolores veniam error dolorem consequatur adipisci odio tenetur totam? Ducimus, repellendus esse? Quas assumenda, vel facilis repudiandae voluptas at praesentium dolore.
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugiat dolores veniam error dolorem consequatur adipisci odio tenetur totam? Ducimus, repellendus esse? Quas assumenda, vel facilis repudiandae voluptas at praesentium dolore.
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugiat dolores veniam error dolorem consequatur adipisci odio tenetur totam? Ducimus, repellendus esse? Quas assumenda, vel facilis repudiandae voluptas at praesentium dolore.
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugiat dolores veniam error dolorem consequatur adipisci odio tenetur totam? Ducimus, repellendus esse? Quas assumenda, vel facilis repudiandae voluptas at praesentium dolore.
+              <div class="author">
+                <span>Norbert Nasenmann</span> –
+                <span title="22nd April 2023 23:15GMT">22nd April 2023</span>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="rating-bubble colored-by-rating">
+              <div>
+                5.0
+              </div>
+            </div>
+            <div>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugiat dolores veniam error dolorem consequatur adipisci
+              odio tenetur totam? 
+              <div class="author">
+                <span>Norbert Nasenmann</span> –
+                <span title="22nd April 2023 23:15GMT">22nd April 2023</span>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="rating-bubble colored-by-rating">
+              <div>
+                0.0
+              </div>
+            </div>
+            <div>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugiat dolores veniam error dolorem consequatur adipisci
+              odio tenetur totam? Ducimus, repellendus esse? Quas assumenda, vel facilis repudiandae voluptas at praesentium
+              dolore.
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugiat dolores veniam error dolorem consequatur adipisci
+              odio tenetur totam? Ducimus, repellendus esse? Quas assumenda, vel facilis repudiandae voluptas at praesentium
+              dolore.
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugiat dolores veniam error dolorem consequatur adipisci
+              odio tenetur totam? Ducimus, repellendus esse? Quas assumenda, vel facilis repudiandae voluptas at praesentium
+              dolore.
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugiat dolores veniam error dolorem consequatur adipisci
+              odio tenetur totam? Ducimus, repellendus esse? Quas assumenda, vel facilis repudiandae voluptas at praesentium
+              dolore.
+              <div class="author">
+                <span>Norbert Nasenmann</span> –
+                <span title="22nd April 2023 23:15GMT">22nd April 2023</span>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </section>
+    </main>
+    <aside>
+      <nav>
+        <h2>Newest</h2>
+        <ol>
+          <li>
+            <a href="https://orf.at">Algorithmen und Datenstrukturen</a>
+          </li>
+          <li>
+            <a href="">Algorithmen und Datenstrukturen</a>
+          </li>
+          <li>
+            <a href="">Algorithmen und Datenstrukturen</a>
+          </li>
+          <li>
+            <a href="">Algorithmen und Datenstrukturen</a>
+          </li>
+        </ol>
+      </nav>
+    </aside>
+  </div>
+  <footer>
+    <section class="logo">
+      <img src="./static/images/logo.svg" alt="">
+      <span>Powered by Perl & Pain ♥</span>
+    </section>
+    <section class="info">
+      <p>
+        Submission for group WAE08
+      </p>
+      <p>
+        WS 2023
+      </p>
+    </section>
+    <section>
+      <nav>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/contact">Contact</a></li>
+          <li><a href="/legal">Legal</a></li>
+        </ul>
+      </nav>
+    </section>
+    <section>
+      <nav>
+        <ul>
+          <li><a href="./modules/electives">Electives</a></li>
+          <li><a href="./modules/sw-engineering">SW Engineering</a></li>
+          <li><a href="./modules/mathematics">Mathematics</a></li>
+          <li><a href="./modules/info-engineering">Info Engineering</a></li>
+          <li><a href="./modules/society">Society</a></li>
+          <li><a href="./modules/computer-systems">Computer Systems</a></li>
+          <li><a href="./modules/algorithms">Algorithms</a></li>
+        </ul>
+      </nav>
+    </section>
+    <section>
+      <nav>
+        <ul class="socials">
+          <li>
+            <a href="https://instagram.com">
+              <img src="./static/images/instagram.webp"> Instagram
+            </a>
+          </li>
+          <li>
+            <a href="https://facebook.com">
+              <img src="./static/images/facebook.webp"> Facebook
+            </a>
+          </li>
+          <li>
+            <a href="https://twitter.com">
+              <img src="./static/images/twitter.webp"> Twitter
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </section>
+  </footer>
+</body>
+</html>

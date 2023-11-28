@@ -31,3 +31,10 @@ document.querySelectorAll('.colored-by-rating').forEach( elem => {
   elem.style.backgroundColor = makeRatingHslColor( ratingValue );
 });
 
+document.getElementById('new-rating').addEventListener('input', e => {
+  const span= document.getElementById('new-rating-value');
+  const value= parseFloat(e.target.value);
+  span.innerText = Math.floor(value) !== value ? value : `${value}.0`;
+  span.style.backgroundColor = makeRatingHslColor(value);
+});
+
