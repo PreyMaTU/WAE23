@@ -14,11 +14,20 @@ document.getElementById('profile-button').addEventListener('click', event => {
   }
 });
 
-document.querySelectorAll('.article-index div.rating').forEach( elem => {
-  const ratingValue = parseFloat(elem.innerText);
+function makeRatingHslColor( ratingValue ) {
   const hue = ratingValue * 20; // map 0-5 to 0-100
-  elem.style.backgroundColor = `hsl(${hue}deg 92% 72%)`;
+  return `hsl(${hue}deg 92% 72%)`;
+}
+
+document.querySelectorAll('.colored-by-rating').forEach( elem => {
+  // Try to find a fractional number in the element text content
+  const matches= elem.innerText.match(/\d+\.\d+/);
+  if( !matches ) {
+    return;
+  }
+
+  // Convert the text to a number and create a nice color
+  const ratingValue = parseFloat( matches[0] );
+  elem.style.backgroundColor = makeRatingHslColor( ratingValue );
 });
-
-
 
