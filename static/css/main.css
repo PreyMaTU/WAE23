@@ -240,6 +240,7 @@ aside {
   padding: 0.2rem 0.35rem;
   border: 1px solid grey;
   border-radius: var(--border-radius);
+  white-space: nowrap;
 
   &:is(a) {
     transition: color 0.2s ease, background-color 0.2s ease;
@@ -482,10 +483,12 @@ main {
       justify-content: space-between;
       margin: 1rem;
       margin-bottom: 0.8rem;
+      gap: 1rem;
 
       & .info{
         display: flex;
         flex-direction: row;
+        align-items: flex-end;
         gap: 1.5rem;
       }
 
