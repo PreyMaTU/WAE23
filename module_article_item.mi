@@ -1,0 +1,13 @@
+<%class>
+  has 'title' => (required => 1);
+  has 'lva_number' => (required => 1);
+  has 'rating' => (required => 1);
+</%class>
+
+<li class="anim-float-box">
+  <a href="/article?lva_number=<% $.lva_number %>">
+    <span><% $.lva_number %></span>
+    <span><% $.title %></span>
+    <div class="rating colored-by-rating"><% $.rating %></div>
+  </a>
+</li>
