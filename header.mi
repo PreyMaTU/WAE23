@@ -2,7 +2,7 @@
   <form class="close" method="dialog">
     <button>×</button>
   </form>
-  <form action="." method="POST">
+  <form action="/wae08" method="POST">
     <h3>Login</h3>
     <p>
       Login into your account to rate and LVA pages.
@@ -24,7 +24,7 @@
   <form class="close" method="dialog">
     <button>×</button>
   </form>
-  <form action="." method="POST">
+  <form action="/wae08" method="POST">
     <h3>Logout</h3>
     <p>
       Do you want to logout from your account?
@@ -34,7 +34,7 @@
 </dialog>
 <header>
   <figure>
-    <a href="/">
+    <a href="/wae08/">
       <img src="/wae08/static/images/logo.svg" alt="">
     </a>
     <figcaption>
@@ -56,7 +56,11 @@
   </nav>
   <div class="profile">
     <button id="profile-button">
-      <img src="/wae08/static/images/key.svg" alt="">
+% if( defined $m->session->{user_id} ) {
+      <img src="/wae08/static/images/user.svg" alt="Logout">
+% } else {
+      <img src="/wae08/static/images/key.svg" alt="Login">
+% }
     </button>
   </div>
 </header>
