@@ -62,6 +62,7 @@ header {
           visibility: visible;
           opacity: 1;
           transform: translateX(-50%);
+          z-index: 10;
         }
 
         /* Button linking to the LVA module page */
