@@ -23,6 +23,13 @@ has 'password';
           $m->session->{user_id} = $user->{id}
         }
       }
+
+      # No user id was set -> login failure
+      if( !defined $m->session->{user_id} ) {
+        $m->redirect('/wae08/index?bad_credentials')
+      }
+    }
+
   </%perl>
 
   <!DOCTYPE html>

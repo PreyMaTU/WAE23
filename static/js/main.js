@@ -43,3 +43,7 @@ document.querySelectorAll('#new-rating').forEach( elem =>
 if( CKEDITOR && document.getElementById('lva-article') ) {
   CKEDITOR.replace('lva-article', {});
 }
+
+if( new URL(window.location).searchParams.has('bad_credentials') ) {
+  document.getElementById('login-failure').showModal();
+}

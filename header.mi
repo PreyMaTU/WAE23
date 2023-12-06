@@ -32,6 +32,18 @@
     <button>Logout</button>
   </form>
 </dialog>
+<dialog id="login-failure">
+  <form class="close" method="dialog">
+    <button>×</button>
+  </form>
+  <form method="dialog">
+    <h3>Bad credentials</h3>
+    <p>
+      Logging in failed, because your username and password do not match.
+    </p>
+    <button>Ok</button>
+  </form>
+</dialog>
 <header>
   <figure>
     <a href="/wae08/">
