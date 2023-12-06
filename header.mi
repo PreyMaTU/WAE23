@@ -45,33 +45,13 @@
   </figure>
   <nav>
     <ul>
-      <li><a href="./modules/electives">Electives</a></li>
-      <li><a href="./modules/sw-engineering">SW Engineering</a></li>
-      <li><a href="./modules/mathematics">Mathematics</a></li>
-      <li><a href="./modules/info-engineering">Info Engineering</a></li>
-      <li><a href="./modules/society">Society</a></li>
-      <li><a href="./modules/computer-systems">Computer Systems</a></li>
-      <li>
-        <a href="./modules/algorithms">Algorithms</a>
-        <div class="popup">
-          <nav>
-            <ul>
-              <li>
-                <a href="kek.com" title="183.123 LVA 1">LVA 1</a>
-              </li>
-              <li>
-                <a href="kek.com" title="183.123 LVA with long name">LVA with long name</a>
-              </li>
-              <li>
-                <a href="kek.com" title="183.234 LVA with very very long name">LVA with very very long name</a>
-              </li>
-              <li>
-                <a href="kek.com" title="183.345 short LVA">short LVA</a>
-              </li>
-            </ul>
-          </nav>
-        </div>
-      </li>
+      <& header_nav_module_item.mi, name => 'Electives', id => 'electives' &>
+      <& header_nav_module_item.mi, name => 'SW Engineering', id => 'sw_engineering' &>
+      <& header_nav_module_item.mi, name => 'Mathematics', id => 'mathematics' &>
+      <& header_nav_module_item.mi, name => 'Info Engineering', id => 'info_engineering' &>
+      <& header_nav_module_item.mi, name => 'Society', id => 'society' &>
+      <& header_nav_module_item.mi, name => 'Computer Systems', id => 'computer_systems' &>
+      <& header_nav_module_item.mi, name => 'Algorithms', id => 'algorithms' &>
     </ul>
   </nav>
   <div class="profile">

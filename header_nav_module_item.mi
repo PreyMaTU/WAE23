@@ -1,0 +1,26 @@
+<%class>
+  has 'name' => (required => 1);
+  has 'id' => (required => 1);
+</%class>
+
+<li>
+  <a href="/wae08/module?id=<% $.id %>"><% $.name %></a>
+  <div class="popup">
+    <nav>
+      <ul>
+        <li>
+          <a href="kek.com" title="183.123 LVA 1">LVA 1</a>
+        </li>
+        <li>
+          <a href="kek.com" title="183.123 LVA with long name">LVA with long name</a>
+        </li>
+        <li>
+          <a href="kek.com" title="183.234 LVA with very very long name">LVA with very very long name</a>
+        </li>
+        <li>
+          <a href="kek.com" title="183.345 short LVA">short LVA</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</li>
