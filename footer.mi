@@ -1,4 +1,58 @@
-<%class>
-has 'grp';
-</%class>
-<div>This page by WAE group <% $.grp %>;</div>
+<footer>
+  <section class="logo">
+    <img src="/wae08/static/images/logo.svg" alt="">
+    <span>Powered by Perl & Pain ♥</span>
+  </section>
+  <section class="info">
+    <p>
+      Submission for group WAE08
+    </p>
+    <p>
+      WS 2023
+    </p>
+  </section>
+  <section>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/contact">Contact</a></li>
+        <li><a href="/legal">Legal</a></li>
+      </ul>
+    </nav>
+  </section>
+  <section>
+    <nav>
+      <ul>
+        <li><a href="./modules/electives">Electives</a></li>
+        <li><a href="./modules/sw-engineering">SW Engineering</a></li>
+        <li><a href="./modules/mathematics">Mathematics</a></li>
+        <li><a href="./modules/info-engineering">Info Engineering</a></li>
+        <li><a href="./modules/society">Society</a></li>
+        <li><a href="./modules/computer-systems">Computer Systems</a></li>
+        <li><a href="./modules/algorithms">Algorithms</a></li>
+      </ul>
+    </nav>
+  </section>
+  <section>
+    <nav>
+      <ul class="socials">
+        <li>
+          <a href="https://instagram.com">
+            <img src="/wae08/static/images/instagram.webp"> Instagram
+          </a>
+        </li>
+        <li>
+          <a href="https://facebook.com">
+            <img src="/wae08/static/images/facebook.webp"> Facebook
+          </a>
+        </li>
+        <li>
+          <a href="https://twitter.com">
+            <img src="/wae08/static/images/twitter.webp"> Twitter
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </section>
+</footer>

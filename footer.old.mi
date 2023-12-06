@@ -1,0 +1,4 @@
+<%class>
+has 'grp';
+</%class>
+<div>This page by WAE group <% $.grp %>;</div>
