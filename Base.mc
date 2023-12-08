@@ -26,7 +26,8 @@ has 'password';
 
       # No user id was set -> login failure
       if( !defined $m->session->{user_id} ) {
-        $m->redirect('/wae08/index?bad_credentials');
+        my $path= $m->request_path();
+        $m->redirect("$path?bad_credentials");
       }
     }
 

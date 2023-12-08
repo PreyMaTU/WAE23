@@ -2,7 +2,7 @@
   <form class="close" method="dialog">
     <button>×</button>
   </form>
-  <form action="/wae08" method="POST">
+  <form action="<% $m->request_path() %>" method="POST">
     <h3>Login</h3>
     <p>
       Login into your account to rate and LVA pages.
