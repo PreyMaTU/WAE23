@@ -57,13 +57,9 @@
   </figure>
   <nav>
     <ul>
-      <& header_nav_module_item.mi, name => 'Electives', id => 'electives' &>
-      <& header_nav_module_item.mi, name => 'SW Engineering', id => 'sw_engineering' &>
-      <& header_nav_module_item.mi, name => 'Mathematics', id => 'mathematics' &>
-      <& header_nav_module_item.mi, name => 'Info Engineering', id => 'info_engineering' &>
-      <& header_nav_module_item.mi, name => 'Society', id => 'society' &>
-      <& header_nav_module_item.mi, name => 'Computer Systems', id => 'computer_systems' &>
-      <& header_nav_module_item.mi, name => 'Algorithms', id => 'algorithms' &>
+% while( my $module = $moduleSth->fetchrow_hashref ) {
+      <& header_nav_module_item.mi, name => $module->{name}, id => $module->{url_name} &>
+% }
     </ul>
   </nav>
   <div class="profile">
@@ -76,3 +72,11 @@
     </button>
   </div>
 </header>
+
+
+<%init>
+  # Get all known module types
+  my $dbh = Ws23::DBI->dbh();
+  my $moduleSth = $dbh->prepare("SELECT * FROM group08_modules ORDER BY name ASC");
+  $moduleSth->execute();
+</%init>
