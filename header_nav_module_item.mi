@@ -8,19 +8,19 @@
   <div class="popup">
     <nav>
       <ul>
-        <li>
-          <a href="kek.com" title="183.123 LVA 1">LVA 1</a>
-        </li>
-        <li>
-          <a href="kek.com" title="183.123 LVA with long name">LVA with long name</a>
-        </li>
-        <li>
-          <a href="kek.com" title="183.234 LVA with very very long name">LVA with very very long name</a>
-        </li>
-        <li>
-          <a href="kek.com" title="183.345 short LVA">short LVA</a>
-        </li>
+% while( my $article = $articleSth->fetchrow_hashref ) {
+  <li>
+    <a href="/wae08/article/<% $article->{lva_number} %>" title="<% $article->{title} %>"><% $article->{title} %></a>
+  </li>
+% }
       </ul>
     </nav>
   </div>
 </li>
+
+<%init>
+  # Get all known subjects of the module
+  my $dbh = Ws23::DBI->dbh();
+  my $articleSth = $dbh->prepare("SELECT a.* FROM group08_article as a JOIN group08_modules as m ON a.module = m.id WHERE m.url_name = '" . $self->id . "';");
+  $articleSth->execute();
+</%init>
