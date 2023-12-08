@@ -1,5 +1,5 @@
 <%class>
-  has 'id' => (default => 'electives');
+  route "{id:[a-z_]*}";
 </%class>
 
 <%init>

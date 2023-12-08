@@ -4,7 +4,7 @@
 </%class>
 
 <li>
-  <a href="/wae08/module?id=<% $.id %>"><% $.name %></a>
+  <a href="/wae08/module/<% $.id %>"><% $.name %></a>
   <div class="popup">
     <nav>
       <ul>
