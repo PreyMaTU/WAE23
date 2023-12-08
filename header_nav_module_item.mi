@@ -21,6 +21,6 @@
 <%init>
   # Get all known subjects of the module
   my $dbh = Ws23::DBI->dbh();
-  my $articleSth = $dbh->prepare("SELECT a.* FROM group08_article as a JOIN group08_modules as m ON a.module = m.id WHERE m.url_name = '" . $self->id . "';");
-  $articleSth->execute();
+  my $articleSth = $dbh->prepare("SELECT a.* FROM group08_article as a JOIN group08_modules as m ON a.module = m.id WHERE m.url_name = ?");
+  $articleSth->execute($.id);
 </%init>
