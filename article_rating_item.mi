@@ -1,0 +1,21 @@
+<%class>
+  has 'author' => (required => 1);
+  has 'edit_date' => (required => 1);
+  has 'rating' => (required => 1);
+  has 'comment' => (required => 1);
+</%class>
+
+<li>
+  <div class="rating-bubble colored-by-rating">
+    <div>
+      <% $.rating %>
+    </div>
+  </div>
+  <div>
+    <% $.comment %>
+    <div class="author">
+      <span><% $.author %></span> –
+      <span title="<% $.edit_date %>"><% $.edit_date %></span>
+    </div>
+  </div>
+</li>

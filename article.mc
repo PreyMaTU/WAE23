@@ -74,5 +74,11 @@
 </section>
 <section class="reviews"> 
   <ul>
+% while( my $rating = $rating_sth->fetchrow_hashref ) {
+  <& article_rating_item.mi, author => $rating->{name}, 
+                            edit_date => $rating->{edit_date},
+                            rating => $rating->{value},
+                            comment => $rating->{comment}&>
+% }
   </ul>
 </section>
