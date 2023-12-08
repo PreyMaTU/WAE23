@@ -5,7 +5,7 @@
 </%class>
 
 <li class="anim-float-box">
-  <a href="/article?lva_number=<% $.lva_number %>">
+  <a href="/wae08/article/<% $.lva_number %>">
     <span><% $.lva_number %></span>
     <span><% $.title %></span>
     <div class="rating colored-by-rating"><% $.rating %></div>
