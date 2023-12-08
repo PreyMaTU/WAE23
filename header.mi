@@ -24,7 +24,7 @@
   <form class="close" method="dialog">
     <button>×</button>
   </form>
-  <form action="/wae08" method="POST">
+  <form action="/wae08/logout" method="GET">
     <h3>Logout</h3>
     <p>
       Do you want to logout from your account?
