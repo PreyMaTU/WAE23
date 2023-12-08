@@ -4,7 +4,7 @@ has 'username';
 has 'password';
 </%class>
 
-<%augment wrap>
+<%augment wrap> 
   <%perl>
     if( $.username && $.password ) {
       # Clear the old session
@@ -20,13 +20,13 @@ has 'password';
       if( defined $user->{id} ) {
         my $password_hash = crypt($.password, $user->{password_salt});
         if( $password_hash eq $user->{password_hash} ) {
-          $m->session->{user_id} = $user->{id}
+          $m->session->{user_id} = $user->{id};
         }
       }
 
       # No user id was set -> login failure
       if( !defined $m->session->{user_id} ) {
-        $m->redirect('/wae08/index?bad_credentials')
+        $m->redirect('/wae08/index?bad_credentials');
       }
     }
 
