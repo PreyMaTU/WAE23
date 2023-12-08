@@ -1,10 +1,22 @@
 <%class>
-  has 'id' => (required => 1);
+  has 'id' => (default => 'electives');
 </%class>
+
+<%init>
+  my $dbh = Ws23::DBI->dbh();
+  my $sth = $dbh->prepare("SELECT * FROM group08_modules where url_name = ?");
+  $sth->execute( $.id );
+
+  my $module = $sth->fetchrow_hashref;
+  if( !$module ) {
+    $m->redirect('/wae08/index');
+  }
+
+</%init>
 
 <section class="article-index">
   <div class="title">
-    <h2>Algorithms</h2>
+    <h2><% $module->{name} %></h2>
 % if( defined $m->session->{user_id} ) {
     <a class="button" href="/editor.html?module=<% $.id %>" title="Create new Article">➕ Create</a> 
 % } else {
