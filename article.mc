@@ -3,6 +3,8 @@
 </%class>
 
 <%init>
+  use Date::Manip;
+
   # Get the article, author and module info
   my $dbh = Ws23::DBI->dbh();
   my $article_sth = $dbh->prepare("SELECT a.*, u.name, m.name as module_name, m.url_name as module_url_name 
@@ -70,7 +72,7 @@
     </div>
     <div>
       Last edited
-      <span class="date" title="<% $article->{edit_data} %>"><% $article->{edit_data} %></span>
+      <span class="date" title="<% $article->{edit_data} %>"><% UnixDate(ParseDate($article->{edit_data}), '%E %b %Y' ) %></span>
       by
       <span class="author"><% $article->{name} %></span>
     </div>

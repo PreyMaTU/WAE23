@@ -5,6 +5,10 @@
   has 'comment' => (required => 1);
 </%class>
 
+<%init>
+  use Date::Manip;
+</%init>
+
 <li>
   <div class="rating-bubble colored-by-rating">
     <div>
@@ -15,7 +19,7 @@
     <% $.comment %>
     <div class="author">
       <span><% $.author %></span> –
-      <span title="<% $.edit_date %>"><% $.edit_date %></span>
+      <span title="<% $.edit_date %>"><% UnixDate(ParseDate($.edit_date), '%E %b %Y' ) %></span>
     </div>
   </div>
 </li>
