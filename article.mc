@@ -30,9 +30,14 @@
   # Load all ratings and compute average rating value
   my @ratings_array;
   my $avg_rating_value= 0;
+  my $user_rating;
   while( my $rating = $rating_sth->fetchrow_hashref ) {
     push( @ratings_array, $rating );
     $avg_rating_value += $rating->{value};
+
+    if( $rating->{user} == $m->session->{user_id} ) {
+      $user_rating= $rating;
+    }
   }
 
   # Print the avg value with a single decimal place
@@ -40,6 +45,14 @@
     $avg_rating_value= sprintf('%.1f', $avg_rating_value / scalar( @ratings_array ) );
   } else {
     $avg_rating_value= 'NA';
+  }
+
+  # Get comment and value if user already made a rating entry
+  my $user_rating_comment= '';
+  my $user_rating_value= 5;
+  if( defined $user_rating ) {
+    $user_rating_comment= $user_rating->{comment};
+    $user_rating_value= $user_rating->{value};
   }
 
   # Update the view count only once per session
@@ -94,13 +107,13 @@
     <div>
       <label for="new-rating">Rating</label>
       <div class="slider">
-        <input type="range" min="0" max="5" step="0.1" value="5" required name="rating" id="new-rating" <% $rating_disabled %>>
-        <span id="new-rating-value" class="colored-by-rating">5.0</span>
+        <input type="range" min="0" max="5" step="0.1" value="<% $user_rating_value %>" required name="rating" id="new-rating" <% $rating_disabled %>>
+        <span id="new-rating-value" class="colored-by-rating"><% sprintf('%.1f', $user_rating_value ) %></span>
       </div>
     </div>
     <div>
       <label for="new-comment">Comment</label>
-      <textarea name="comment" id="new-comment" cols="30" rows="10" placeholder="Add your thoughts..." <% $rating_disabled %> ></textarea>
+      <textarea name="comment" id="new-comment" cols="30" rows="10" placeholder="Add your thoughts..." <% $rating_disabled %> ><% $user_rating_comment %></textarea>
     </div>
     <button type="submit" <% $rating_disabled %> >Save</button>
   </form>
