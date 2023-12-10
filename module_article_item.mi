@@ -4,10 +4,19 @@
   has 'rating' => (required => 1);
 </%class>
 
+<%init>
+  my $rating= '';
+  if( defined $.rating ) {
+    $rating = sprintf('%.1f', $.rating );
+  } else {
+    $rating = 'NA';
+  }
+</%init>
+
 <li class="anim-float-box">
   <a href="/wae08/article/<% $.lva_number %>">
     <span><% $.lva_number %></span>
     <span><% $.title %></span>
-    <div class="rating colored-by-rating"><% $.rating %></div>
+    <div class="rating colored-by-rating" title="Rating <% $rating %>"><% $rating %></div>
   </a>
 </li>

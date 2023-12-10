@@ -33,7 +33,11 @@
   }
 
   # Print the avg value with a single decimal place
-  $avg_rating_value= sprintf('%.1f', $avg_rating_value / scalar( @ratings_array ));
+  if( scalar( @ratings_array ) ) { 
+    $avg_rating_value= sprintf('%.1f', $avg_rating_value / scalar( @ratings_array ) );
+  } else {
+    $avg_rating_value= 'NA';
+  }
 
   # Update the view count only once per session
   my $sessionKey= 'viewed_' . $article->{id};

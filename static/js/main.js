@@ -21,9 +21,13 @@ function makeRatingHslColor( ratingValue ) {
 
 document.querySelectorAll('.colored-by-rating').forEach( elem => {
   // Try to find a fractional number in the element text content
-  const matches= elem.innerText.match(/\d+\.\d+/);
+  const matches= elem.innerText.match(/(\d+\.\d+)|(NA)/);
   if( !matches ) {
     return;
+  }
+
+  if( matches[0] === 'NA' ) {
+    elem.style.backgroundColor= '#d8d8d8';  
   }
 
   // Convert the text to a number and create a nice color
