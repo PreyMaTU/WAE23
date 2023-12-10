@@ -15,13 +15,11 @@
     $m->redirect('/wae08/index');
   }
 
-  my $dbh = Ws23::DBI->dbh();
   my $rating_sth = $dbh->prepare("SELECT r.*, u.name 
                                   FROM group08_rating as r 
-                                  JOIN group08_article as a ON r.article = a.id 
                                   JOIN group08_user as u ON u.id = r.user
-                                  WHERE lva_number = ?");
-  $rating_sth->execute( $.lva_number );
+                                  WHERE r.article = ?");
+  $rating_sth->execute( $article->{id} );
 </%init>
 
 <section class="header">
