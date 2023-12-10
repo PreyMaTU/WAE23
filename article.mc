@@ -24,6 +24,17 @@
                                   WHERE r.article = ?");
   $rating_sth->execute( $article->{id} );
 
+  # Load all ratings and compute average rating value
+  my @ratings_array;
+  my $avg_rating_value= 0;
+  while( my $rating = $rating_sth->fetchrow_hashref ) {
+    push( @ratings_array, $rating );
+    $avg_rating_value += $rating->{value};
+  }
+
+  # Print the avg value with a single decimal place
+  $avg_rating_value= sprintf('%.1f', $avg_rating_value / scalar( @ratings_array ));
+
   # Update the view count only once per session
   my $sessionKey= 'viewed_' . $article->{id};
   if( !defined $m->session->{$sessionKey} ) {
@@ -50,7 +61,7 @@
       <a class="button" href="/wae08/module/<% $article->{module_url_name} %>" title="Module <% $article->{module_name} %>">
         🗄️ <% $article->{module_name} %>
       </a>
-      <span class="button colored-by-rating" title="Rating 3.8"> ⭐ 3.8 </span>
+      <span class="button colored-by-rating" title="Rating <% $avg_rating_value %>"> ⭐ <% $avg_rating_value %> </span>
       <span class="button" title="<% $article->{views} %> views"> 👓 <% $article->{views} %> </span>
     </div>
     <div>
@@ -84,7 +95,7 @@
 </section>
 <section class="reviews"> 
   <ul>
-% while( my $rating = $rating_sth->fetchrow_hashref ) {
+% foreach my $rating ( @ratings_array ) {
   <& article_rating_item.mi, author => $rating->{name}, 
                             edit_date => $rating->{edit_date},
                             rating => $rating->{value},
