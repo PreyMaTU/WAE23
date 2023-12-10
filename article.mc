@@ -50,6 +50,9 @@
     $view_count_update_sth->execute( $article->{id} );
   }
   
+  # Disable the rating form
+  my $rating_disabled = defined $m->session->{user_id} ? '' : 'disabled';
+
 </%init>
 
 <section class="header">
@@ -85,25 +88,27 @@
   </article>
 </section>
 <section class="new-review">
-  <form action="." method="POST">
+  <form action="/wae08/rating" method="POST">
+    <input type="text" name="lva_number" value="<% $.lva_number %>" hidden>
+    <input type="text" name="article_id" value="<% $article->{id} %>" hidden>
     <div>
       <label for="new-rating">Rating</label>
       <div class="slider">
-        <input type="range" min="0" max="5" step="0.1" value="5" required name="rating" id="new-rating">
+        <input type="range" min="0" max="5" step="0.1" value="5" required name="rating" id="new-rating" <% $rating_disabled %>>
         <span id="new-rating-value" class="colored-by-rating">5.0</span>
       </div>
     </div>
     <div>
       <label for="new-comment">Comment</label>
-      <textarea name="comment" id="new-comment" cols="30" rows="10" placeholder="Add your thoughts..."></textarea>
+      <textarea name="comment" id="new-comment" cols="30" rows="10" placeholder="Add your thoughts..." <% $rating_disabled %> ></textarea>
     </div>
-    <button type="submit">Save</button>
+    <button type="submit" <% $rating_disabled %> >Save</button>
   </form>
 </section>
 <section class="reviews"> 
   <ul>
 % foreach my $rating ( @ratings_array ) {
-  <& article_rating_item.mi, author => $rating->{name}, 
+  <& article_rating_item.mi, author => $rating->{name},
                             edit_date => $rating->{edit_date},
                             rating => $rating->{value},
                             comment => $rating->{comment}&>
