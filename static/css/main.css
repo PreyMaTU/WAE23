@@ -453,7 +453,7 @@ main {
 
         &::after {
           content: '';
-          background-image: url(/static/images/link.svg);
+          background-image: url(/wae08/static/images/link.svg);
           width: 0.7em;
           height: 0.7em;
           text-decoration: none;
