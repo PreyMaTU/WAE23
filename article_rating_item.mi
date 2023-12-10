@@ -8,7 +8,7 @@
 <li>
   <div class="rating-bubble colored-by-rating">
     <div>
-      <% $.rating %>
+      <% sprintf('%.1f', $.rating ) %>
     </div>
   </div>
   <div>
@@ -19,3 +19,4 @@
     </div>
   </div>
 </li>
+
