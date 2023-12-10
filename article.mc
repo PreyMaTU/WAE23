@@ -4,9 +4,10 @@
 
 <%init>
   my $dbh = Ws23::DBI->dbh();
-  my $article_sth = $dbh->prepare("SELECT a.*, u.name 
+  my $article_sth = $dbh->prepare("SELECT a.*, u.name, m.name as module_name, m.url_name as module_url_name 
                                   FROM group08_article as a 
                                   JOIN group08_user as u ON a.author = u.id 
+                                  JOIN group08_modules as m ON a.module = m.id 
                                   WHERE lva_number = ?");
   $article_sth->execute( $.lva_number );
 
@@ -35,8 +36,8 @@
   <div class="buttons">
     <div class="info">
       <span class="button" title="LVA-Nr. <% $article->{lva_number} %>">📕 <% $article->{lva_number} %></span>
-      <a class="button" href="" title="Module <% $article->{title} %>">
-        🗄️ <% $article->{title} %>
+      <a class="button" href="/wae08/module/<% $article->{module_url_name} %>" title="Module <% $article->{module_name} %>">
+        🗄️ <% $article->{module_name} %>
       </a>
       <span class="button colored-by-rating" title="Rating 3.8"> ⭐ 3.8 </span>
       <span class="button" title="<% $article->{views} %> views"> 👓 <% $article->{views} %> </span>
