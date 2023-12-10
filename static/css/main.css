@@ -641,6 +641,11 @@ main {
       }
     }
 
+    /* Fill available space */
+    & .comment {
+      flex-grow: 1;
+    }
+
     /* A colored circle with a drop-shadow. The text value is centered using flex */
     & .rating-bubble {
       width: 5rem;
