@@ -9,7 +9,8 @@
 
   my $module = $module_sth->fetchrow_hashref;
   if( !$module ) {
-    $m->redirect('/wae08/index');
+    my $id= $.id;
+    $m->redirect("/wae08/not_found?kind=module&id=$id");
   }
 
   my $article_sth = $dbh->prepare(

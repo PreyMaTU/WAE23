@@ -16,7 +16,8 @@
 
   my $article = $article_sth->fetchrow_hashref;
   if( !$article ) {
-    $m->redirect('/wae08/index');
+    my $id= $.lva_number;
+    $m->redirect("/wae08/not_found?kind=article&id=$id");
   }
 
   # Get all the ratings
