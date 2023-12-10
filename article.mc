@@ -3,6 +3,7 @@
 </%class>
 
 <%init>
+  # Get the article, author and module info
   my $dbh = Ws23::DBI->dbh();
   my $article_sth = $dbh->prepare("SELECT a.*, u.name, m.name as module_name, m.url_name as module_url_name 
                                   FROM group08_article as a 
@@ -16,11 +17,21 @@
     $m->redirect('/wae08/index');
   }
 
+  # Get all the ratings
   my $rating_sth = $dbh->prepare("SELECT r.*, u.name 
                                   FROM group08_rating as r 
                                   JOIN group08_user as u ON u.id = r.user
                                   WHERE r.article = ?");
   $rating_sth->execute( $article->{id} );
+
+  # Update the view count only once per session
+  my $sessionKey= 'viewed_' . $article->{id};
+  if( !defined $m->session->{$sessionKey} ) {
+    $m->session->{$sessionKey}= 1;
+    my $view_count_update_sth = $dbh->prepare("UPDATE group08_article SET views = views+1 WHERE id = ?");
+    $view_count_update_sth->execute( $article->{id} );
+  }
+  
 </%init>
 
 <section class="header">
