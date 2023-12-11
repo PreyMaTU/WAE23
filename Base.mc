@@ -54,6 +54,7 @@ has 'password';
       </main>
       <aside>
         <& news.mi &>
+        <& popular.mi &>
       </aside>
     </div>
     <& footer.mi &>

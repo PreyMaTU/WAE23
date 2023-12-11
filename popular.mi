@@ -1,0 +1,19 @@
+
+<%init>
+  my $dbh = Ws23::DBI->dbh();
+  my $sth = $dbh->prepare("SELECT title, lva_number FROM group08_article ORDER BY views DESC LIMIT 5");
+  $sth->execute();
+</%init>
+
+<nav>
+  <h2>Popular</h2>
+  <ol>
+% while( my $article = $sth->fetchrow_hashref ) {
+    <li>
+      <a href="/wae08/article/<% $article->{lva_number} %>">
+        <% $article->{title} %>
+      </a>
+    </li>
+% }
+  </ol>
+</nav>
