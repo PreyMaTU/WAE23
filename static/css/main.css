@@ -270,7 +270,7 @@ main {
   flex-grow: 1;
 
   /* Section header with separation line */
-  & .title {
+  & section > .title {
     display: flex;
     flex-direction: row;
     align-items: flex-end;
@@ -298,7 +298,7 @@ main {
 
   /* Homepage module block showing multiple LVA article blocks */
   & .module {
-    width: fit-content;
+    /* width: fit-content; */
 
     & > ol {
       list-style: none;
@@ -483,7 +483,7 @@ main {
     border-bottom: 1px solid grey;
 
     /* Adapt the title block so that the info buttons can be placed underneath */
-    & .title {
+    & > .title {
       border: none;
       margin-bottom: 0;
       padding: 0;
