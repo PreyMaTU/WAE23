@@ -1,3 +1,7 @@
+<%init>
+  $.title('About');
+</%init>
+
 <section class="about">
   <h2>About</h2>
   <article class="article-text">

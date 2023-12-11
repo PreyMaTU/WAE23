@@ -66,6 +66,9 @@
   # Disable the rating form
   my $rating_disabled = defined $m->session->{user_id} ? '' : 'disabled';
 
+  # Set page title to article title
+
+  $.title( $article->{title} );
 </%init>
 
 <section class="header">

@@ -21,6 +21,9 @@
     GROUP BY a.id"
   );
   $article_sth->execute( $module->{id} );
+
+  # Set the name of the module as the page title
+  $.title( $module->{name} );
 </%init>
 
 <section class="article-index">

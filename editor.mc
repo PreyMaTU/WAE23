@@ -8,6 +8,11 @@
   has 'parentid';
 </%class>
 
+<%init>
+  # TODO add name of article
+  $.title('Editor');
+</%init>
+
 <h2>
 % if (defined($.docid) && ($.insert==0)) {
 Dokument <% $.docid %> editieren
@@ -94,15 +99,15 @@ while (my $res = $sth->fetchrow_hashref()) {
 }
 
 if ($.Save) {
-# Speichern wurde gedrückt...
+# Speichern wurde gedrï¿½ckt...
   if ($.insert == 1) {
-  # Datensatz aus Formularfeldern in Datenbank einfügen
+  # Datensatz aus Formularfeldern in Datenbank einfï¿½gen
     my $sth = $dbh->prepare("INSERT INTO schranz_cms (docid,content,metatext,title,parent,created) values (?,?,?,?,?,NOW())");
     $sth->execute($.docid,$.content,$.metatext,$.title,(($.parentid > 0)?$.parentid:0));
     $msg = "Datensatz ". $.docid ." neu in DB aufgenommen.".$sth->rows();
 #    $.insert(0);
   } else {
-  # Datensatz in Datenbank ändern
+  # Datensatz in Datenbank ï¿½ndern
     my $sth = $dbh->prepare("UPDATE schranz_cms SET content = ?, title = ?, parent = ? WHERE docid = ?");
     $sth->execute($.content,$.title,$.parentid,$.docid);
     $msg = "Datensatz " . $.docid ." in DB ver&auml;ndert.".$sth->rows();

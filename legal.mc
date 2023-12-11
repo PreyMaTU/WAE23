@@ -1,3 +1,7 @@
+<%init>
+  $.title('Legal');
+</%init>
+
 <section class="about">
   <h2>Legal Information</h2>
   <article class="article-text">  

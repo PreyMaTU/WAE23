@@ -3,6 +3,10 @@
   has 'id' => (default => 'unknown');
 </%class>
 
+<%init>
+  $.title('Not found');
+</%init>
+
 <section class="about">
   <h2>Could not find <% $.kind %></h2>
   <article class="article-text">  

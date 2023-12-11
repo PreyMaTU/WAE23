@@ -1,3 +1,7 @@
+<%init>
+  $.title('Contact');
+</%init>
+
 <section class="about">
   <h2>Contact Us</h2>
   <article class="article-text">  
