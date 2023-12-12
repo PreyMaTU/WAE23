@@ -1,0 +1,55 @@
+<%class>
+  has 'article' => (required => 1);
+</%class>
+
+<%init>
+  sub escape_html {
+    my ($html_source) = @_;
+    my @paragraphs;
+
+    # Extract content from <p> tags
+    while ($html_source =~ m|<p\b[^>]*>(.*?)</p>|gs) {
+      my $paragraph_content = $1;
+
+      # Extract text content of tags within <p>
+      foreach my $tag ('a', 's', 'em', 'strong', 'span', 'cite', 'pre') {
+        $paragraph_content =~ s|<$tag\b[^>]*>(.*?)</$tag>|$1|gs;        
+      }
+      
+      # Escape any remaining html to prevent styling breaks
+      $paragraph_content =~ s/&nbsp;//g;
+      $paragraph_content =~ s/</&lt;/g;
+      $paragraph_content =~ s/>/&gt;/g;
+      $paragraph_content =~ s/&/&amp;/g;
+
+      push @paragraphs, $paragraph_content;
+    }
+
+    # Concatenate paragraphs into one long string
+    my $result = join ' ', @paragraphs;
+
+    return $result;
+  }
+
+
+  my $meter_id= "rating-" . ( $.article->{lva_number} =~ s/\./-/r );
+  my $rating_value= defined $.article->{rating} ? sprintf('%.1f', $.article->{rating} ) : 'NA';
+</%init>
+
+<li>
+  <article class="anim-float-box">
+    <a href="/wae08/article/<% $.article->{lva_number} %>">
+      <h3>
+        <span class="number"><% $.article->{lva_number} %></span>
+        <span class="title"><% $.article->{title} %></span>
+      </h3>
+  </a>
+    <div class="rating-bar">
+      <label for="<% $meter_id %>"><% $rating_value %></label>
+      <meter value="<% $.article->{rating} %>" min="0" max="5" id="<% $meter_id %>" title="Rating <% $rating_value %> / 5"> <% $rating_value %> </meter>
+    </div>
+    <p>
+      <% escape_html($.article->{content}) %>
+    </p>
+  </article>
+</li>
