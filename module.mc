@@ -30,7 +30,7 @@
   <div class="title">
     <h2><% $module->{name} %></h2>
 % if( defined $m->session->{user_id} ) {
-    <a class="button" href="/editor.html?module=<% $module->{id} %>" title="Create new Article">➕ Create</a> 
+    <a class="button" href="/wae08/editor?module=<% $.id %>" title="Create new Article">➕ Create</a> 
 % } else {
     <a class="button disabled" title="Sign in to create a new article">➕ Create</a>
 % }

@@ -75,7 +75,7 @@
   <div class="title">
     <h2><% $article->{title} %></h2>
 % if( defined $m->session->{user_id} ) {
-    <a class="button" href="/editor.html?article=<% $article->{lva_number} %>" title="Edit this article">✏️ Edit</a> 
+    <a class="button" href="/wae08/editor?article=<% $article->{lva_number} %>" title="Edit this article">✏️ Edit</a> 
 % } else {
     <a class="button disabled" title="Sign in to edit this article">✏️ Edit</a>
 % }
