@@ -45,16 +45,16 @@
   </form>
 </dialog>
 <header>
-  <figure>
-    <a href="/wae08/">
+  <a href="/wae08/">
+    <figure>
       <img src="/wae08/static/images/logo.svg" alt="">
-    </a>
-    <figcaption>
-      <h1>
-        LVA-Review
-      </h1>
-    </figcaption>
-  </figure>
+      <figcaption>
+        <h1>
+          LVA-Review
+        </h1>
+      </figcaption>
+    </figure>
+  </a>
   <nav>
     <ul>
 % while( my $module = $moduleSth->fetchrow_hashref ) {
