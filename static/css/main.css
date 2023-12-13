@@ -696,11 +696,13 @@ main {
       }
     }
     
-    /* Move the submit button to the right of the box */
-    & button {
-      display: block;
-      margin: 0 2rem 0 auto;
-      margin-top: 1rem;
+    /* Move the submits button to the right of the box */
+    & .submits {
+      display: flex;
+      justify-content: flex-end;
+      gap: 1rem;
+      padding-right: 2rem;
+      padding-top: 1rem;
     }
   }
 }

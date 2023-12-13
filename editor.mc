@@ -86,8 +86,17 @@
       <label for="lva-article"></label>
       <textarea name="content" id="lva-article" cols="30" rows="10"><% $content %></textarea>
     </fieldset>
-    <div>
+    <div class="submits">
+% if( $.article ) {
+      <button type="submit" form="delete-form">🗑️ Delete</button>
+% } else {
+      <button type="submit" disabled>🗑️ Delete</button>
+% }
       <button type="submit">💾 Save</button>
     </div>
+  </form>
+  <form id="delete-form" action="/wae08/delete_article">
+    <input type="text" name="lva_number" value="<% $.article %>" hidden>
+    <input type="text" name="module" value="<% $module %>" hidden>
   </form>
 </section>
